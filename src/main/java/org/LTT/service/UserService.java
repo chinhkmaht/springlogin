@@ -2,18 +2,12 @@ package org.LTT.service;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.LTT.persistence.dao.PasswordResetTokenRepository;
-import org.LTT.persistence.dao.RoleRepository;
-import org.LTT.persistence.dao.UserRepository;
-import org.LTT.persistence.dao.VerificationTokenRepository;
+import org.LTT.persistence.dao.*;
 import org.LTT.persistence.model.PasswordResetToken;
 import org.LTT.persistence.model.User;
 import org.LTT.persistence.model.VerificationToken;
@@ -45,6 +39,12 @@ public class UserService implements IUserService {
 
     @Autowired
     private RoleRepository roleRepository;
+    
+    @Autowired
+    private UniversityRepository universityRepository;
+
+    @Autowired
+    private CompanyCardRepository companyCardRepository;
 
     @Autowired
     private SessionRegistry sessionRegistry;
@@ -64,13 +64,20 @@ public class UserService implements IUserService {
             throw new UserAlreadyExistException("There is an account with that email adress: " + accountDto.getEmail());
         }
         final User user = new User();
-      
         user.setFirstName(accountDto.getFirstName());
         user.setLastName(accountDto.getLastName());
         user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
         user.setEmail(accountDto.getEmail());
         user.setUsing2FA(accountDto.isUsing2FA());
+        user.setUniversityId(accountDto.getUniversityId());
+        user.setUniversity(universityRepository.findOne(accountDto.getUniversityId()));;
         user.setRoles(Arrays.asList(roleRepository.findOne((accountDto.getRole()).longValue())));
+        user.setCompanycardId(accountDto.getCompanycardId());
+        user.setRoleId((accountDto.getRole()).longValue());
+        user.setAssignTo(0);
+        user.setModifileDate(new Date());
+        user.setCreateDate(new Date());
+        System.out.println("   - -   user    -----"+user);
         return repository.save(user);
     }
 
@@ -174,7 +181,6 @@ public class UserService implements IUserService {
             tokenRepository.delete(verificationToken);
             return TOKEN_EXPIRED;
         }
-
         user.setEnabled(true);
         // tokenRepository.delete(verificationToken);
         repository.save(user);
@@ -205,5 +211,7 @@ public class UserService implements IUserService {
     public List<String> getUsersFromSessionRegistry() {
         return sessionRegistry.getAllPrincipals().stream().filter((u) -> !sessionRegistry.getAllSessions(u, false).isEmpty()).map(Object::toString).collect(Collectors.toList());
     }
+
+
 
 }

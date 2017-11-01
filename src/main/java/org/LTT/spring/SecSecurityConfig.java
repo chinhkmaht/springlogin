@@ -5,8 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -49,6 +48,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring()
             .antMatchers("/resources/**")
             .antMatchers("/css/**")
+            .antMatchers("/js/**")
+            .antMatchers("/fonts/**")
             .antMatchers("/images/**");
     }
 
@@ -58,13 +59,15 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/login*","/login*","/fragments*", "/logout*", "/signin/**", "/signup/**", "/customLogin",
-                        "/user/registration*", "/registrationConfirm*", "/expiredAccount*", "/registration*",
-                        "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*",
-                        "/user/changePassword*", "/emailError*", "/resources/**","/old/user/registration*","/successRegister*","/qrcode*").permitAll()
+                .antMatchers("/index*","/index*","/searchuser*","/login*","/fragments*", "/logout*", "/signup/**", "/customLogin",
+                        "/registrationConfirm*", 
+                        "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*","/searchusertop*", "/user/resetPassword*",
+                        "/user/changePassword*", "/emailError*","/resources/**","/old/user/registration*","/successRegister*","/editeviews*","/qrcode*","/deletelogicuser*").permitAll()
                 .antMatchers("/invalidSession*").anonymous()
                 .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
-                .anyRequest().hasAuthority("READ_PRIVILEGE")
+                .antMatchers("/university*","/userlist*","/saveuniversity*","/addcompanycard*","/saveassign*","/admin-edit-save-registration*","/listperiodtimesheet*","/addlocal*","/deleteassign*","/companycard*","/savecompanycard*","/registration*", "/user/registration*", "/deletelogiccompanycard*","/adduniversity*","/deletelogicuniversity*", "/signin/**").permitAll()
+//                .antMatchers("/university*","/userlist*","/saveuniversity*","/addcompanycard*","/companycard*","/savecompanycard*","/registration*", "/user/registration*", "/deletelogiccompanycard*","/adduniversity*","/deletelogicuniversity*", "/signin/**").hasAuthority("WRITE_PRIVILEGE")
+                .antMatchers( "/signin/**").hasAuthority("READ_PRIVILEGE")
                 .and()
             .formLogin()
                 .loginPage("/login")
@@ -83,7 +86,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
                 .logoutSuccessHandler(myLogoutSuccessHandler)
                 .invalidateHttpSession(false)
-                .logoutSuccessUrl("/logout.html?logSucc=true")
+                .logoutSuccessUrl("/index.html")
                 .deleteCookies("JSESSIONID")
                 .permitAll();
     // @formatter:on

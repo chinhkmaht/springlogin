@@ -1,0 +1,119 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../css/bootstrap-combined.min.css" th:href="@{/css/bootstrap-combined.min.css}" media="screen"/>
+    <!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+    <script th:src="@{/js/jquery-2.0.3.min.js}"></script>
+    <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>-->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="../css/bootstrap-editable.css" th:href="@{/css/bootstrap-editable.css}" media="screen"/>
+
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/js/bootstrap-editable.min.js"></script>-->
+    <script th:src="@{/js/bootstrap-editable.min.js}"></script>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/animate.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/icomoon.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/bootstrap.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/magnific-popup.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/owl.carousel.min.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/owl.theme.default.min.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/style.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/stylelogin.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" media="screen"/>
+
+</head>
+<body>
+
+<div id="page">
+    <div th:replace="header/header :: header">...</div>
+    <div class="container">
+    	<div class="MG20">
+	        <form>
+	            <div class="form-group row">
+	                <label class="col-sm-3" >User</label>
+	                <span class="col-sm-5" th:text="${selecteduser.lastName +' '+selecteduser.firstName}">
+	                </span>
+	            </div>
+	            <div class="form-group row">
+	                <label class="col-sm-3" >Local</label>
+	                <span class="col-sm-5">
+	                    <select  name="mentor" class="form-control" id="checklocaluser" >
+	                        <option th:each="local : ${locals}"
+	                                th:value="${local.id}"
+	                                th:selected ="${local.id  == selectedlocal.id}"
+	                                th:text="${local.localname}">
+	                        </option>
+	                    </select>
+	                </span>
+	            </div>
+	            <input id="idLocaluserEdit" th:value="*{localuseredit.id}"/>
+	            <br/>
+	            <button type="submit" id="saveeditlocaluser" class="btn btn-primary" th:text="#{label.form.submit}">submit</button>
+	
+	            <br/>
+	            <!--<a class="btn btn-primary" th:href="@{/localuser}">Back </a>-->
+	            <a th:href="@{/localuser}">back</a>
+	        </form>
+		</div>
+    </div>
+    <div th:replace="fragments/footer :: footer">...</div>
+</div>
+
+<script type="application/javascript">
+    $(document).ready(function () {
+        $('#saveeditlocaluser').on("click",function(e){
+            e.preventDefault();
+            if(confirm("Are you sure?")) {
+                var id = $("#idLocaluserEdit").val();
+                alert(id);
+                var localid = $('#checklocaluser').val();
+                    $.ajax({
+                        type: "POST",
+                        url: "/saveeditlocaluser",
+                        data: {id: id,localid:localid},
+                        success: function (data) {
+                            window.location.reload();
+                        }
+                    });
+                }
+        });
+
+        $('.edit-localuser').on("click",function (e) {
+           e.preventDefault();
+            var id = parseInt($(this).closest("td").attr("id"));
+            $.ajax({
+                type:"GET",
+                url:"/editlocaluser/"+id,
+                data:{id:id},
+                success: function(data) {
+                    window.location.href="/editlocaluser/"+id;
+                },
+                error:function () {
+                    window.location.href="/editlocaluser/"+id;
+                }
+            });
+
+        });
+
+        $('.delete-localuser').on("click", function(e){
+            e.preventDefault();
+            if(confirm("Are you sure the order is complete?")){
+                var id = parseInt($(this).closest("td").attr("id"));
+                $.ajax({
+                    type:"POST",
+                    url:"/deletelocaluser",
+                    data:{id:id},
+                    success: function(data) {
+                        window.location.reload();
+                    },
+                    error:function () {
+
+                        window.location.reload();
+                    }
+
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

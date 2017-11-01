@@ -1,0 +1,164 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../css/bootstrap-combined.min.css" th:href="@{/css/bootstrap-combined.min.css}" media="screen"/>
+    <!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+    <script th:src="@{/js/jquery-2.0.3.min.js}"></script>
+    <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>-->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="../css/bootstrap-editable.css" th:href="@{/css/bootstrap-editable.css}" media="screen"/>
+
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/js/bootstrap-editable.min.js"></script>-->
+    <script th:src="@{/js/bootstrap-editable.min.js}"></script>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/animate.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/icomoon.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/bootstrap.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/magnific-popup.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/owl.carousel.min.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/owl.theme.default.min.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/style.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/stylelogin.css}" media="screen"/>
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" media="screen"/>
+
+</head>
+<body>
+
+<div id="page">
+    <div th:replace="header/header :: header">...</div>
+    <div class="container">
+		<div class="MG20">
+		    <div class="form-group row">
+		        <div class="form-group col-sm-6">
+		            <label class="col-sm-3" >Choise Period</label>
+		            <span class="col-sm-6">
+		                 <select  name="intership" class="" id="ChoisePeriod" >
+		                 		<option value="0">Choise
+		                 		</option>
+		                        <option th:each="period : ${listperiod}"
+		                                th:value="${period.id}"
+		                                th:text="${period.namePeriod }">
+		                        </option>
+		                    </select>
+		            </span>
+		        </div>
+		    </div>
+    
+    
+		    <div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6 boxshow">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name Period</th>
+								<th> User Name</th>
+								<th> Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="timesheet : ${listregistration}">
+								<form th:action="@{/delete-registration-period-timesheet}" method="post">
+									<td th:text="${timesheet.id}"></td>
+									<td th:text="${timesheet.periodName}"></td>
+									<td th:text="${timesheet.userName}"  ></td>
+									<td th:id="${timesheet.id}">
+										<button class="btn btn-danger " type="submit">
+											Delete
+										</button>
+										<button class="btn btn-warning edit-registration-time">
+				                              Edit
+				                         </button>
+				                          <input  type="hidden" name="id"  th:value="*{timesheet.id}" />
+									</td>
+								</form>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+    <div th:replace="fragments/footer :: footer">...</div>
+    
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"
+						th:if="${message != null}">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Error TimeSheet</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul th:each="timemessage : ${message}">
+						<li th:text="${timemessage.messages}"  ></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script type="application/javascript">
+    $(document).ready(function () {
+    	showMessage();
+		function showMessage() {
+			if ($('#messageModal').length > 0) {
+                $('#messageModal').modal('show');
+			}
+        }
+        $('#ChoisePeriod').on('change', function(e) {
+            e.preventDefault();
+            var id = $("#ChoisePeriod").val();
+            $.ajax({
+                type: "GET",
+                url: "/choisePeriodTimesheet/"+id,
+                data: {},
+                success: function (data) {
+                    window.location.href="/choisePeriodTimesheet/"+id;
+                }
+            });
+        });
+        
+//           $('.delete-registration-time').on("click", function(e){
+//             e.preventDefault();
+//             if(confirm("Are you sure the order is complete?")){
+//                 var id = parseInt($(this).closest("td").attr("id"));
+//                 $.ajax({
+//                     type:"POST",
+//                     url:"/delete-registration-period-timesheet",
+//                     data:{id:id},
+//                     success: function(data) {
+//                         window.location.reload();
+//                     },
+//                     error:function () {
+//                         window.location.reload();
+//                     }
+//                 });
+//             }
+//         });
+
+        $('.edit-registration-time').on("click",function (e) {
+            e.preventDefault();
+            var id = parseInt($(this).closest("td").attr("id"));
+            $.ajax({
+                type:"GET",
+                url:"/edit-registration-time/"+id,
+                data:{id:id},
+                success: function(data) {
+                    window.location.href="/edit-registration-time/"+id;
+                }
+
+            });
+
+        });
+        
+        
+    });
+</script>
+</body>
+</html>

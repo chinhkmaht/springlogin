@@ -21,6 +21,6 @@ public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
             session.removeAttribute("user");
         }
 
-        response.sendRedirect("/springlogin/logout.html?logSucc=true");
+        response.sendRedirect("/index");
     }
 }

@@ -1,0 +1,235 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="../css/bootstrap-combined.min.css" th:href="@{/css/bootstrap-combined.min.css}" media="screen"/>
+	<script th:src="@{/js/jquery-2.0.3.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/bootstrap-editable.min.js}"></script>
+
+  <script th:src="@{/js/bootstrap-datetimepicker.min.js}"></script>
+
+    <link rel="stylesheet" href="../css/main.css" th:href="@{/css/bootstrap-datetimepicker.min.css}" media="screen"/>
+	<link rel="stylesheet" href="../css/bootstrap-editable.css" th:href="@{/css/bootstrap-editable.css}" media="screen"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+
+	
+	<title th:text="#{label.pages.home.title}">home</title>
+</head>
+<body>
+<div id="page">
+	<div th:replace="header/header :: header">...</div>
+	<div class="container">
+		<div class="MG20">
+			<form th:action="@{/add-reviews-intership}" method="post">
+				<div class="form-group row">
+					<div class="form-group">
+							<label class="col-sm-2" >Form Date</label>
+							<span class="col-sm-4">
+	<!-- 						<input class="form-control" name="reviewsForm" type="date" id="reviews-formdate" value="" /> -->
+								<div  class="input-append col-sm-6 datetimepicker3 ">
+									<input data-format="yyyy-MM-dd" type="text" name="reviewsForm" id="reviews-formdate" ></input>
+									<span class="add-on">
+									  <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+									  </i>
+									</span>
+		                   		 </div>
+							</span>
+						</div>
+	
+						<div class="form-group">
+							<label class="col-sm-2" >To Date</label>
+							<span class="col-sm-4">
+							
+							<div  class="input-append col-sm-6 datetimepicker3 ">
+								<input data-format="yyyy-MM-dd" type="text" name="reviewTo" id="reviews-todate" ></input>
+								<span class="add-on">
+								  <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+								  </i>
+								</span>
+	                   		 </div>
+	<!-- 						<input class="form-control" name="reviewTo" type="date" id="reviews-todate" value=""  /> -->
+							
+							</span>
+						</div>
+					</div>
+	
+					<div class="form-group row">
+						<div class="form-group">
+							<label class="col-sm-2" >Note</label>
+							<span class="col-sm-4">
+								<textarea class="form-control" name="note" id="review-note">
+								</textarea>
+							</span>
+						</div>
+					</div>
+	
+					<div class="form-group row">
+						<label class="col-sm-2" >Rank</label>
+						<span class="col-sm-4">
+						<select  name="rank" class="form-control"  id="review-rank">
+								<option value="1">Trung Binh</option>
+								<option value="2">Kha</option>
+								<option value="3">Gioi</option>
+						</select>
+						</span>
+					</div>
+			  <input id="userreview" type="hidden" name="userIdrv"  th:value="*{userreview}" />
+			  <input id="reivew-userid"  name="userIdReview" type="hidden" th:value="*{userid}"/>
+			  <button  id="reviews-internship" class="btn btn-primary" >Submit</button>
+		</form>
+		</div>
+	        <div class="row">
+	            <div class="col-lg-8 col-md-7 col-sm-6 boxshow">
+	                <table class="table table-striped table-hover">
+	                    <thead>
+	                    <tr>
+	                        <th>ID</th>
+	                        <th>Rank(xep hang)</th>
+	                        <th>User Name </th>
+	                        <th>User Reviews</th>
+	                        <th>Reviews Form</th>
+	                        <th>Reviews To</th>
+	                        <th>Note</th>
+	                        <th>Action</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+		                    <tr th:each="review : ${reviews}">
+		                        <td th:text="${review.id}"></td>
+		                        <td th:text="${review.rank}" th:id="${review.id}" data-pk="999" class="selecteditable"  ></td>
+								<td th:text="${review.username}"></td>
+								<td th:text="${review.userReviewName}"></td>
+								<td th:text="${review.reviewsForm}"></td>
+								<td th:text="${review.reviewTo}"></td>
+								<td th:text="${review.note}" class="e-internship-note"></td>
+		                        <td th:id="${review.id}"><button class="btn btn-danger delete-review">
+		                            Action
+		                        </button></td>
+		                    </tr>
+	                    </tbody>
+	                </table>
+	            </div>
+	        </div>
+        </div>
+		<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"
+							th:if="${message != null}">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Error TimeSheet</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<ul th:each="timemessage : ${message}">
+						<li th:text="${timemessage.messages}"  ></li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+
+	<div th:replace="fragments/footer :: footer">...</div>
+</div>
+
+<script>
+    $(document).ready(function () {
+    	
+    	showMessage();
+		function showMessage() {
+			if ($('#messageModal').length > 0) {
+                $('#messageModal').modal('show');
+			}
+        }
+		
+		   $(function() {
+	            $('.datetimepicker3').datetimepicker({
+	               dateFormat: 'yyyy-MM-dd',
+
+	            });
+	        });
+    	
+        //editable
+        $(".e-internship-note").editable({
+            url: "/editeviews",
+            ajaxOptions: {
+                type: 'POST',
+                dataType: 'json',
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            },
+            params: function(params) {
+                var objStr = {
+                    id: params.name,
+                    note: params.value
+                };
+                return objStr;
+            },
+            success: function(data) {
+
+                //window.location.reload();
+            },
+            error:function () {
+                // window.location.reload();
+            }
+
+        });
+
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+//         $('#reviews-internship').on("click", function(e){
+//             e.preventDefault();
+// 			var ranktext = $("#review-rank option:selected").text().trim();
+//             var rankid = $("#review-rank").val().trim();
+//             var note = $("#review-note").val().trim();
+//             var formdate = $("#reviews-formdate").val().trim();
+//             var todate =$("#reviews-todate").val().trim();
+//             var userreview = $("#userreview").val();
+//             var reivewuserid= $("#reivew-userid").val();
+//             if ($.trim(ranktext) === "") {
+//                 alert("You must choise  Rank");
+//             }else if($.trim(formdate) === ""){
+//                 alert("You must choise from date");
+// 			}else if($.trim(todate) === ""){
+//                 alert("You must choise  to date");
+// 			}
+//             else{
+// 				$.ajax({
+// 					type:"POST",
+// 					url:"/reviewuserresult",
+// 					data:{rankid:rankid,rank:ranktext,note:note,useridreview:reivewuserid,userid:userreview,formdate:formdate,todate:todate},
+// 					success:function (data) {
+// 						 window.location.reload();
+// 					}
+// 				});
+//             }
+//         });
+
+
+        $('.delete-review').on("click",function (e) {
+            e.preventDefault();
+            var id = parseInt($(this).closest("td").attr("id"));
+            $.ajax({
+				type:"POST",
+				url:"/deletelogicreview",
+				data:{id:id},
+				success:function(data){
+				    window.location.reload();
+				}
+			});
+        });
+
+    });
+
+</script>
+</body>
+
+</html>

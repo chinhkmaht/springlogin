@@ -29,7 +29,24 @@ public class UserDto {
     @Size(min = 1)
     private String email;
 
+    private Long universityId;
+
+
+    private Long companycardId;
+
+    public void setCompanycardId(Long companycardId) {
+        this.companycardId = companycardId;
+    }
+
+    public Long getCompanycardId() {
+        return companycardId;
+    }
+
     private boolean isUsing2FA;
+
+    public Long getUniversityId() {
+        return universityId;
+    }
 
     public String getEmail() {
         return email;
@@ -39,9 +56,22 @@ public class UserDto {
         this.email = email;
     }
 
-    private Integer role;
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
+    }
 
-    public Integer getRole() {
+    private Integer role;
+    private long roleId;
+
+    public long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
+	}
+
+	public Integer getRole() {
         return role;
     }
 
@@ -93,7 +123,7 @@ public class UserDto {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append("UserDto [firstName=").append(firstName).append(", lastName=").append(lastName).append(", password=").append(password).append(", matchingPassword=").append(matchingPassword).append(", email=").append(email).append(", isUsing2FA=")
-                .append(isUsing2FA).append(", role=").append(role).append("]");
+                .append(isUsing2FA).append(", role=") .append(role) .append(", role=").append(roleId) .append(", universityId=").append(universityId) .append(", companycardId=").append(companycardId).append("]");
         return builder.toString();
     }
 

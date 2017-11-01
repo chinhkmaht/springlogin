@@ -41,6 +41,9 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         clearAuthenticationAttributes(request);
     }
 
+
+    // check login
+
     protected void handle(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
         final String targetUrl = determineTargetUrl(authentication);
 
@@ -54,30 +57,26 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
     protected String determineTargetUrl(final Authentication authentication) {
         boolean isUser = false;
         boolean isAdmin = false;
+        boolean isinternship = false;
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        
-        System.out.println("  777777777777  == =  "+authorities );
-        System.out.println("  777777777777  authentication.getName()  "+authentication.getName());
-        
-        System.out.println("  777777777777  authentication.getName()  "+authentication);
-       
         for (final GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals("READ_PRIVILEGE")) {
+            if (grantedAuthority.getAuthority().equals("MANAGER_PRIVILEGE")) {
                 isUser = true;
             } else if (grantedAuthority.getAuthority().equals("WRITE_PRIVILEGE")) {
                 isAdmin = true;
                 isUser = false;
                 break;
             }
-            
-            System.out.println("  777777777777   =  "+grantedAuthority.getAuthority());
         }
         if (isUser) {
             return "/homepage.html?user=" + authentication.getName();
         } else if (isAdmin) {
-            return "/console.html";
-        } else {
-            throw new IllegalStateException();
+        	 return "/userlist";
+        } else if(isinternship) {
+        	return "/homepageinternship";
+           
+        }else {
+        	 throw new IllegalStateException();
         }
     }
     

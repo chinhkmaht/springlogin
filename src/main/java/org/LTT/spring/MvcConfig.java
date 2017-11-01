@@ -20,7 +20,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
-@ComponentScan(basePackages = { "org.LTT.web" })
+@ComponentScan(basePackages = { "org.LTT.web","org.LTT.service" })
 @EnableWebMvc
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
@@ -33,10 +33,14 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
         super.addViewControllers(registry);
-        registry.addViewController("/").setViewName("forward:/login");
+        registry.addViewController("/").setViewName("forward:/index");
         registry.addViewController("/login");
+        registry.addViewController("/index");
+      
         registry.addViewController("/customLogin");
         registry.addViewController("/registration.html");
+        registry.addViewController("/reviewuser.html");
+        registry.addViewController("/reviewsinternship.html");
         registry.addViewController("/registrationCaptcha.html");
         registry.addViewController("/logout.html");
         registry.addViewController("/homepage.html");
@@ -44,9 +48,17 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/badUser.html");
         registry.addViewController("/emailError.html");
         registry.addViewController("/home.html");
-       
+        registry.addViewController("/adminGetPeriodTimesheet.html");
+        registry.addViewController("/index.html");
         registry.addViewController("/console.html");
         registry.addViewController("/admin.html");
+        registry.addViewController("/university");
+        registry.addViewController("/university.html");
+        registry.addViewController("/searchuser.html");
+        registry.addViewController("/searchuser");
+        registry.addViewController("/edituniver.html");
+        registry.addViewController("/edituniver");
+        registry.addViewController("/saveuniversity");
         registry.addViewController("/successRegister.html");
         registry.addViewController("/forgetPassword.html");
         registry.addViewController("/updatePassword.html");
@@ -63,6 +75,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/", "/resources/");
+        registry.addResourceHandler("/images/**").addResourceLocations("/", "/images/");
+        registry.addResourceHandler("/css/**").addResourceLocations("/", "/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/", "/js/");
+        registry.addResourceHandler("/fonts/**").addResourceLocations("/", "/fonts/");
     }
 
     @Override

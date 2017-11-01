@@ -1,13 +1,17 @@
 package org.LTT.web.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 import java.util.Locale;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.LTT.persistence.dao.CompanyCardRepository;
 import org.LTT.persistence.dao.RoleRepository;
+import org.LTT.persistence.dao.UniversityRepository;
+import org.LTT.persistence.model.Role;
 import org.LTT.persistence.model.User;
 import org.LTT.persistence.model.VerificationToken;
 import org.LTT.registration.OnRegistrationCompleteEvent;
@@ -51,10 +55,16 @@ public class RegistrationController {
     private JavaMailSender mailSender;
 
     @Autowired
-	private RoleRepository roleRepository;
-    
+    private RoleRepository roleRepository;
+
     @Autowired
     private ApplicationEventPublisher eventPublisher;
+
+    @Autowired
+    private UniversityRepository universityRepository;
+
+    @Autowired
+    private CompanyCardRepository companyCardRepository;
 
     @Autowired
     private Environment env;
@@ -64,33 +74,50 @@ public class RegistrationController {
     }
 
     // Registration
-    
     @RequestMapping(value= "/registration", method = RequestMethod.GET)
-    public String say(Model model) {
-    	System.out.println(" registration    0000   ");
-    	  model.addAttribute("role", roleRepository.findAll());
-    	  System.out.println("  roleRepository.findAll()   "+roleRepository.findAll());
-    	return "registration";
+    public String say(Model model,Principal principal) {
+        System.out.println(" registration    0000   ");
+        model.addAttribute("role", roleRepository.findAll());
+        model.addAttribute("unit",universityRepository.findByStatus(true));
+        model.addAttribute("card",companyCardRepository.findByStatus(true));
+    
+        try {
+        	System.out.println(" useruseruser == nnn "+principal.getName());
+        	User user =userService.findUserByEmail(principal.getName());
+        	long roleId= user.getRoleId();
+        	Role role = roleRepository.findOne(roleId);
+        	String rolename =role.getName();
+        	model.addAttribute("checkrole",rolename);
+        
+        }catch (Exception e){
+        }
+        return "registration";
     }
-    @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
-    @ResponseBody
-    public GenericResponse registerUserAccount(@Valid final UserDto accountDto, final HttpServletRequest request) {
-    	
-    	
-        LOGGER.debug("Registering user account with information: {}", accountDto);
-        System.out.println( "/user/registration    ---------------------------accountDtoaccountDtoaccountDto  -------------- " +accountDto );
 
+    @RequestMapping(value = "/edit-user", method = RequestMethod.POST)
+    public GenericResponse registerUserAccount(@Valid final UserDto accountDto, final HttpServletRequest request) {
+        LOGGER.debug("edit-user with information: {}", accountDto);
+        System.out.println( "edit-user    ---------------------------accountDtoaccountDtoaccountDto  -------------- " +accountDto );
         final User registered = userService.registerNewUserAccount(accountDto);
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered, request.getLocale(), getAppUrl(request)));
         return new GenericResponse("success");
     }
 
+    
+    @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
+    @ResponseBody
+    public GenericResponse editUserAccount(@Valid final UserDto accountDto, final HttpServletRequest request) {
+        LOGGER.debug("Registering user account with information: {}", accountDto);
+        System.out.println( "/user/registration    ---------------------------accountDtoaccountDtoaccountDto  -------------- " +accountDto );
+        final User registered = userService.registerNewUserAccount(accountDto);
+        eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered, request.getLocale(), getAppUrl(request)));
+        return new GenericResponse("success");
+    }
+    
     @RequestMapping(value = "/registrationConfirm", method = RequestMethod.GET)
     public String confirmRegistration(final Locale locale, final Model model, @RequestParam("token") final String token) throws UnsupportedEncodingException {
         final String result = userService.validateVerificationToken(token);
-        
         System.out.println( "registrationConfirm    ----------------------------------------- "  );
-        
         if (result.equals("valid")) {
             final User user = userService.getUser(token);
             System.out.println(user);
@@ -126,7 +153,7 @@ public class RegistrationController {
         final User user = userService.findUserByEmail(userEmail);
         if (user != null) {
             final String token = UUID.randomUUID()
-                .toString();
+                    .toString();
             userService.createPasswordResetTokenForUser(user, token);
             mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
         }
@@ -147,8 +174,8 @@ public class RegistrationController {
     @ResponseBody
     public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
         final User user = (User) SecurityContextHolder.getContext()
-            .getAuthentication()
-            .getPrincipal();
+                .getAuthentication()
+                .getPrincipal();
         userService.changeUserPassword(user, passwordDto.getNewPassword());
         return new GenericResponse(messages.getMessage("message.resetPasswordSuc", null, locale));
     }
@@ -158,8 +185,8 @@ public class RegistrationController {
     @ResponseBody
     public GenericResponse changeUserPassword(final Locale locale, @Valid PasswordDto passwordDto) {
         final User user = userService.findUserByEmail(((User) SecurityContextHolder.getContext()
-            .getAuthentication()
-            .getPrincipal()).getEmail());
+                .getAuthentication()
+                .getPrincipal()).getEmail());
         if (!userService.checkIfValidOldPassword(user, passwordDto.getOldPassword())) {
             throw new InvalidOldPasswordException();
         }
@@ -177,7 +204,6 @@ public class RegistrationController {
         return null;
     }
 
-    // ============== NON-API ============
 
     private SimpleMailMessage constructResendVerificationTokenEmail(final String contextPath, final Locale locale, final VerificationToken newToken, final User user) {
         final String confirmationUrl = contextPath + "/registrationConfirm.html?token=" + newToken.getToken();
