@@ -26,34 +26,34 @@
 <div id="page">
     <div th:replace="header/header :: header">...</div>
     <div class="container">
-        <form>
-            <div class="form-group row">
-                <label class="col-sm-3" >User</label>
-                <span class="col-sm-5" th:text="${selecteduser.lastName +' '+selecteduser.firstName}">
-                    </span>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-sm-3" >Local</label>
-                <span class="col-sm-5">
-                    <select  name="mentor" class="form-control" id="checklocaluser" >
-                        <option th:each="local : ${locals}"
-                                th:value="${local.id}"
-                                th:selected ="${local.id  == selectedlocal.id}"
-                                th:text="${local.localname}">
-                        </option>
-                    </select>
-                    </span>
-            </div>
-            <input id="idLocaluserEdit" th:value="*{localuseredit.id}"/>
-            <br/>
-            <button type="submit" id="saveeditlocaluser" class="btn btn-primary" th:text="#{label.form.submit}">submit</button>
-
-            <br/>
-            <!--<a class="btn btn-primary" th:href="@{/localuser}">Back </a>-->
-            <a th:href="@{/localuser}">back</a>
-        </form>
-
+    	<div class="MG20">
+	        <form>
+	            <div class="form-group row">
+	                <label class="col-sm-3" >User</label>
+	                <span class="col-sm-5" th:text="${selecteduser.lastName +' '+selecteduser.firstName}">
+	                </span>
+	            </div>
+	            <div class="form-group row">
+	                <label class="col-sm-3" >Local</label>
+	                <span class="col-sm-5">
+	                    <select  name="mentor" class="form-control" id="checklocaluser" >
+	                        <option th:each="local : ${locals}"
+	                                th:value="${local.id}"
+	                                th:selected ="${local.id  == selectedlocal.id}"
+	                                th:text="${local.localname}">
+	                        </option>
+	                    </select>
+	                </span>
+	            </div>
+	            <input id="idLocaluserEdit" th:value="*{localuseredit.id}"/>
+	            <br/>
+	            <button type="submit" id="saveeditlocaluser" class="btn btn-primary" th:text="#{label.form.submit}">submit</button>
+	
+	            <br/>
+	            <!--<a class="btn btn-primary" th:href="@{/localuser}">Back </a>-->
+	            <a th:href="@{/localuser}">back</a>
+	        </form>
+		</div>
     </div>
     <div th:replace="fragments/footer :: footer">...</div>
 </div>

@@ -1,7 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d2e3d8f-fc0a-49d8-bcfa-b3148cb35dba" name="Default" comment="" />
+    <list default="true" id="3d2e3d8f-fc0a-49d8-bcfa-b3148cb35dba" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/TimesheetRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/Timesheet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/AddTimesheettestservice.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/IAdminCardService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/IAdminPeriodSheet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/IAdminRegistrationPeriod.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/IReviewService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/ITimesheetService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/IUserService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/spring/ServiceConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/viewmodel/AddTimeSheetRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/console.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/customLogin.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/invalidSession.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/templates/logout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/TimesheetRepository.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/Timesheet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/AddTimesheettestservice.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/IAdminCardService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/IAdminPeriodSheet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/IAdminRegistrationPeriod.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/IReviewService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/ITimesheetService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/IUserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/spring/ServiceConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/viewmodel/AddTimeSheetRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/console.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/customLogin.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/invalidSession.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/logout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/dao/TimesheetRepository.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/model/Timesheet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/IAdminPeriodSheet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/IAdminRegistrationPeriod.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/IReviewService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/ITimesheetService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/IUserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/addTimesheettestservice.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/spring/ServiceConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/spring/SpringTaskConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/error/RestResponseEntityExceptionHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/viewmodel/AddTimeSheetRequest.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/CompanyCardRepository.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/CompanyCardRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/PasswordResetTokenRepository.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/PasswordResetTokenRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/persistence/dao/UserRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/CompanyCard.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/CompanyCard.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/PasswordResetToken.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/PasswordResetToken.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/User.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/persistence/model/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/registration/OnRegistrationCompleteEvent.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/registration/OnRegistrationCompleteEvent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/registration/listener/RegistrationListener.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/registration/listener/RegistrationListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/security/AuthenticationFailureListener.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/security/AuthenticationFailureListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/security/AuthenticationSuccessEventListener.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/security/AuthenticationSuccessEventListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/security/MySimpleUrlAuthenticationSuccessHandler.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/security/MySimpleUrlAuthenticationSuccessHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/security/MyUserDetailsService.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/security/MyUserDetailsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/security/UserSecurityService.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/security/UserSecurityService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/AdminCardService.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/service/AdminCardService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/AdminPeriodTimesheet.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/service/AdminPeriodTimesheet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/AdminRegistrationService.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/service/AdminRegistrationService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/ReviewService.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/service/ReviewService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/spring/SetupDataLoader.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/spring/SetupDataLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/spring/SpringTaskConfig.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/spring/SpringTaskConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/validation/TimeValidation.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/validation/TimeValidation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/AssignController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/AssignController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/CompanyCardController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/CompanyCardController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/HomeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/LocalController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/LocalController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/RegistrationController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/RegistrationController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/ReviewController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/ReviewController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/TimeSheetController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/TimeSheetController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/UniversityController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/UniversityController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/LTT/web/error/RestResponseEntityExceptionHandler.class" afterPath="$PROJECT_DIR$/target/classes/org/LTT/web/error/RestResponseEntityExceptionHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration.war" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration.war.original" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration.war.original" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/dao/CompanyCardRepository.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/dao/CompanyCardRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/dao/UserRepository.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/dao/UserRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/model/CompanyCard.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/persistence/model/CompanyCard.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/registration/listener/RegistrationListener.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/registration/listener/RegistrationListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/AdminPeriodTimesheet.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/AdminPeriodTimesheet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/AdminRegistrationService.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/AdminRegistrationService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/ReviewService.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/ReviewService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/UserService.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/validation/TimeValidation.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/validation/TimeValidation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/AssignController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/AssignController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/CompanyCardController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/CompanyCardController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/LocalController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/LocalController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/RegistrationController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/RegistrationController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/ReviewController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/ReviewController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/TimeSheetController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/TimeSheetController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/UniversityController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/UniversityController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/UserController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/homeController.class" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/org/LTT/web/controller/homeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/AssignInToMentorRepository.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/AssignInToMentorRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/PasswordResetToken.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/PasswordResetToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/registration/listener/RegistrationListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/registration/listener/RegistrationListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/security/AuthenticationFailureListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/security/AuthenticationFailureListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/security/AuthenticationSuccessEventListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/security/AuthenticationSuccessEventListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/security/MySimpleUrlAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/security/MySimpleUrlAuthenticationSuccessHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/AdminCardService.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/service/AdminCardService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/AdminPeriodTimesheet.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/service/AdminPeriodTimesheet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/AdminRegistrationService.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/service/AdminRegistrationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/ReviewService.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/service/ReviewService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/spring/SpringTaskConfig.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/spring/SpringTaskConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/AssignController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/AssignController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/CompanyCardController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/CompanyCardController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/HomeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/LocalController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/LocalController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/RegistrationController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/RegistrationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/ReviewController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/ReviewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/TimeSheetController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/TimeSheetController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/UniversityController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/UniversityController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/org/LTT/web/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminGetPeriodTimesheet.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminGetPeriodTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminRehistrationPeriod.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminRehistrationPeriod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminTimesheet.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/companyCard.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/companyCard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/editAdminRehistrationPeriod.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/editAdminRehistrationPeriod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/editperiodtimesheet.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/editperiodtimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/header/header.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/header/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/listPeriodTimesheet.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/listPeriodTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/periodtimesheet.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/periodtimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewsinternship.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewsinternship.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminGetPeriodTimesheet.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminGetPeriodTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminRehistrationPeriod.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminRehistrationPeriod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminTimesheet.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/companyCard.html" afterPath="$PROJECT_DIR$/target/classes/templates/companyCard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/editAdminRehistrationPeriod.html" afterPath="$PROJECT_DIR$/target/classes/templates/editAdminRehistrationPeriod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/editperiodtimesheet.html" afterPath="$PROJECT_DIR$/target/classes/templates/editperiodtimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/header/header.html" afterPath="$PROJECT_DIR$/target/classes/templates/header/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/listPeriodTimesheet.html" afterPath="$PROJECT_DIR$/target/classes/templates/listPeriodTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/periodtimesheet.html" afterPath="$PROJECT_DIR$/target/classes/templates/periodtimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/reviewsinternship.html" afterPath="$PROJECT_DIR$/target/classes/templates/reviewsinternship.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/springlogintll/springlogintll/pom.properties" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/springlogintll/springlogintll/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/application.properties" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/adminGetPeriodTimesheet.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/adminGetPeriodTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/adminRehistrationPeriod.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/adminRehistrationPeriod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/adminTimesheet.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/adminTimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/assignInterToMentor.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/assignInterToMentor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/companyCard.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/companyCard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/editAdminRehistrationPeriod.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/editAdminRehistrationPeriod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/editlocaluser.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/editlocaluser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/editperiodtimesheet.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/editperiodtimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/header/header.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/header/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/listinternship.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/listinternship.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/listmentor.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/listmentor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/local.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/local.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/login.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/periodtimesheet.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/periodtimesheet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/registration.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/registration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/reviewsinternship.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/reviewsinternship.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/reviewsmentor.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/reviewsmentor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/university.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/university.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/users.html" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/WEB-INF/classes/templates/users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/spring-security-login-and-registration/css/main.css" afterPath="$PROJECT_DIR$/target/spring-security-login-and-registration/css/main.css" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,41 +177,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="adminRehistrationPeriod.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminRehistrationPeriod.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="228" column="8" lean-forward="false" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="8" />
-              <folding>
-                <marker date="1509518826025" expanded="true" signature="12781:12788" ph="..." />
-                <marker date="1509518826025" expanded="true" signature="12917:13250" ph="..." />
-                <marker date="1509518826025" expanded="true" signature="12953:13239" ph="{...}" />
-                <marker date="1509518826025" expanded="true" signature="12977:13097" ph="{...}" />
-                <marker date="1509518826025" expanded="true" signature="13028:13085" ph="{&quot;dateFormat&quot;: 'yyyy-MM-dd'...}" />
-                <marker date="1509518826025" expanded="true" signature="13122:13231" ph="{...}" />
-                <marker date="1509518826025" expanded="true" signature="13172:13219" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IAdminRegistrationPeriod.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/service/IAdminRegistrationPeriod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AdminRegistrationService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/service/AdminRegistrationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+            <state relative-caret-position="-17">
+              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1509602574976" expanded="true" signature="880:3492" ph="{...}" />
+                <marker date="1509602574976" expanded="false" signature="3538:3543" ph=" { " />
+                <marker date="1509602574976" expanded="false" signature="3592:3595" ph=" }" />
+                <marker date="1509602574976" expanded="true" signature="3683:6065" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -72,11 +213,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="50" />
+            <state relative-caret-position="459">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TokensPurgeTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/task/TokensPurgeTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PasswordResetTokenRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/PasswordResetTokenRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="57" lean-forward="false" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PasswordResetToken.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/PasswordResetToken.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+              <folding>
+                <element signature="e#1504#1505#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VerificationTokenRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/VerificationTokenRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -97,26 +281,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddTimesheettestservice.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/service/AddTimesheettestservice.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ITimesheetService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/service/ITimesheetService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -151,6 +315,9 @@
       <find>periMonday</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -159,8 +326,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/webSecurityConfig-basic.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/webSecurityConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/listinternship.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/companyCard.html" />
         <option value="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/AssignInToMentor.java" />
@@ -210,6 +375,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/PeriodTimesheetRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/CompanyCardRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/VerificationTokenRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/PasswordResetToken.java" />
       </list>
     </option>
   </component>
@@ -246,12 +413,13 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-47" />
     <option name="y" value="72" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -318,26 +486,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="LTT" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springloginLTT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springloginLTT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="LTT" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springloginLTT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springloginLTT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="LTT" type="462c0819:PsiDirectoryNode" />
               <item name="registration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -363,7 +511,9 @@
               <item name="springloginLTT" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="LTT" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springloginLTT" type="b2602c69:ProjectViewProjectNode" />
@@ -371,7 +521,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -538,15 +687,15 @@
       <workItem from="1508991972515" duration="28311000" />
       <workItem from="1509078637090" duration="10130000" />
       <workItem from="1509327834228" duration="2999000" />
-      <workItem from="1509412430608" duration="5084000" />
+      <workItem from="1509412430608" duration="7586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200365000" />
+    <option name="totallyTimeSpent" value="202867000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -558,7 +707,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15677084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.041226216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -593,7 +742,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/LTT/web/controller/UserController.java</url>
-          <line>134</line>
+          <line>132</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -603,42 +752,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.0.RELEASE/spring-data-commons-1.13.0.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="53" column="6" lean-forward="false" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/web/viewmodel/MessageModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="116" lean-forward="false" selection-start-line="23" selection-start-column="97" selection-end-line="23" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/header/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/reviewsinternship.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="124" column="35" lean-forward="true" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/web/controller/ReviewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -884,17 +997,17 @@
         <state relative-caret-position="1122">
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <marker date="1509517249124" expanded="true" signature="8178:8187" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="5873:6956" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="5873:6967" ph="..." />
-            <marker date="1509517249124" expanded="true" signature="5925:6307" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="6043:6294" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
-            <marker date="1509517249124" expanded="true" signature="6191:6279" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="6362:6948" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="6458:6938" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="6552:6922" ph="{&quot;type&quot;: &quot;POST&quot;...}" />
-            <marker date="1509517249124" expanded="true" signature="6716:6789" ph="{...}" />
-            <marker date="1509517249124" expanded="true" signature="6829:6903" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="8178:8187" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="5865:6948" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="5865:6959" ph="..." />
+            <marker date="1509592505437" expanded="true" signature="5917:6299" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="6035:6286" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
+            <marker date="1509592505437" expanded="true" signature="6183:6271" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="6354:6940" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="6450:6930" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="6544:6914" ph="{&quot;type&quot;: &quot;POST&quot;...}" />
+            <marker date="1509592505437" expanded="true" signature="6708:6781" ph="{...}" />
+            <marker date="1509592505437" expanded="true" signature="6821:6895" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -959,13 +1072,13 @@
         <state relative-caret-position="0">
           <caret line="228" column="8" lean-forward="false" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="8" />
           <folding>
-            <marker date="1509518826025" expanded="true" signature="12781:12788" ph="..." />
-            <marker date="1509518826025" expanded="true" signature="12917:13250" ph="..." />
-            <marker date="1509518826025" expanded="true" signature="12953:13239" ph="{...}" />
-            <marker date="1509518826025" expanded="true" signature="12977:13097" ph="{...}" />
-            <marker date="1509518826025" expanded="true" signature="13028:13085" ph="{&quot;dateFormat&quot;: 'yyyy-MM-dd'...}" />
-            <marker date="1509518826025" expanded="true" signature="13122:13231" ph="{...}" />
-            <marker date="1509518826025" expanded="true" signature="13172:13219" ph="{...}" />
+            <marker date="1509592485995" expanded="true" signature="12773:12780" ph="..." />
+            <marker date="1509592485995" expanded="true" signature="12909:13242" ph="..." />
+            <marker date="1509592485995" expanded="true" signature="12945:13231" ph="{...}" />
+            <marker date="1509592485995" expanded="true" signature="12969:13089" ph="{...}" />
+            <marker date="1509592485995" expanded="true" signature="13020:13077" ph="{&quot;dateFormat&quot;: 'yyyy-MM-dd'...}" />
+            <marker date="1509592485995" expanded="true" signature="13114:13223" ph="{...}" />
+            <marker date="1509592485995" expanded="true" signature="13164:13211" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -996,10 +1109,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/service/AdminRegistrationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        <state relative-caret-position="-17">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1509602574976" expanded="true" signature="880:3492" ph="{...}" />
+            <marker date="1509602574976" expanded="false" signature="3538:3543" ph=" { " />
+            <marker date="1509602574976" expanded="false" signature="3592:3595" ph=" }" />
+            <marker date="1509602574976" expanded="true" signature="3683:6065" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1046,9 +1163,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="50" />
+        <state relative-caret-position="459">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/VerificationToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <element signature="e#1326#1327#0" expanded="false" />
+            <element signature="e#1359#1360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/VerificationTokenRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/task/TokensPurgeTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/dao/PasswordResetTokenRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="57" lean-forward="false" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/LTT/persistence/model/PasswordResetToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+          <folding>
+            <element signature="e#1504#1505#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-package org.LTT.service;
+package org.LTT.persistence.dao;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.LTT.persistence.model.VerificationToken;
 import org.LTT.web.dto.UserDto;
 import org.LTT.web.error.UserAlreadyExistException;
 
-public interface IUserService {
+public interface UserInterface {
 
     User registerNewUserAccount(UserDto accountDto) throws UserAlreadyExistException;
 

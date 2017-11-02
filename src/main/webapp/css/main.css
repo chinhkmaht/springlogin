@@ -82,7 +82,8 @@ label{
     padding-right: 35px !important;
 }
 #messageModal{
-	margin-left: 500;
+	width: auto !important;
+	background: transparent;
 }
 .boxshow{
 	-webkit-box-shadow: 5 5px 5px 5px #ccc ;

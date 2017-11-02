@@ -26,125 +26,90 @@
 <div id="page">
     <div th:replace="header/header :: header">...</div>
     <div class="container">
-
-<form th:action="@{/add-period-timesheet}" method="post">
-        <div class="form-group row">
-            <div class="form-group">
-                <label class="col-sm-2" >Name Period</label>
-                <span class="col-sm-4"><input class="form-control" name="namePeriod" type="text" id="name-period" value="" /></span>
-            </div>
-
-        </div>
-
-        <div class="form-group row">
-            <div class="form-group">
-                <label class="col-sm-2" >Form Date</label>
-                <span class="col-sm-4"><input class="form-control" name="formDate" type="date" id="peri-formdate" value="" /></span>
-            </div>
-
-            <div class="form-group">
-                <label class="col-sm-2">To Date</label>
-                <span class="col-sm-4"><input class="form-control" name="toDate" type="date" id="peri-todate" value="" /></span>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-6">
-
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th> Monday</th>
-                        <th>Tuesday</th>
-                        <th> Wednesday</th>
-                        <th> Thursday</th>
-                        <th> Friday</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td >
-
-                            <input class="form-control" name="noteMonday" type="text" id="note-mon" value="" />
-                        </td>
-                        <td >
-
-                            <input class="form-control" name="noteTuesday" type="text" id="note-tue" value="" />
-                        </td>
-                        <td >
-
-                            <input class="form-control" name="noteWednesday" type="text" id="note-wed" value="" />
-                        </td>
-                        <td >
-
-                            <input class="form-control" name="noteThursday" type="text" id="note-thur" value="" />
-                        </td>
-                        <td >
-
-                            <input class="form-control" name="noteFriday" type="text" id="note-fri" value="" />
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    <br/>
-    <button type="submit" id="addperiod" class="btn btn-primary" th:text="#{label.form.submit}">submit</button>
-    </form>
-        <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-6">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Time </th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="per : ${listperiod}">
-                        <td th:text="${per.id}"></td>
-                        <td th:text="${per.namePeriod}" ></td>
-                        <td th:text="${per.formDate+' / '+per.toDate}" ></td>
-                        <td th:id="${per.id}">
-                            <button class="btn btn-danger delete-period">
-                            Delete
-                        </button>
-
-                            <button class="btn btn-warning edit-period">
-                                Edit
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-		<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"
-					th:if="${message != null}">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Error TimeSheet</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<ul th:each="timemessage : ${message}">
-						<li th:text="${timemessage.messages}"  ></li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+		<div class="MG20">
+			<form th:action="@{/add-period-timesheet}" method="post">
+			        <div class="form-group row">
+			            <div class="form-group">
+			                <label class="col-sm-2" >Name Period</label>
+			                <span class="col-sm-4"><input class="form-control" name="namePeriod" type="text" id="name-period" value="" /></span>
+			            </div>
+			
+			        </div>
+			
+			        <div class="form-group row">
+			            <div class="form-group">
+			                <label class="col-sm-2" >Form Date</label>
+			                <span class="col-sm-4"><input class="form-control" name="formDate" type="date" id="peri-formdate" value="" /></span>
+			            </div>
+			
+			            <div class="form-group">
+			                <label class="col-sm-2">To Date</label>
+			                <span class="col-sm-4"><input class="form-control" name="toDate" type="date" id="peri-todate" value="" /></span>
+			            </div>
+			        </div>
+			
+			        <div class="row">
+			            <div class="col-lg-8 col-md-7 col-sm-6 boxshow">
+			
+			                <table class="table table-striped table-hover">
+			                    <thead>
+				                    <tr>
+				                        <th> Monday</th>
+				                        <th>Tuesday</th>
+				                        <th> Wednesday</th>
+				                        <th> Thursday</th>
+				                        <th> Friday</th>
+				                    </tr>
+			                    </thead>
+			                    <tbody>
+				                    <tr>
+				                        <td >
+				                            <input class="form-control" name="noteMonday" type="text" id="note-mon" value="" />
+				                        </td>
+				                        <td >
+				                            <input class="form-control" name="noteTuesday" type="text" id="note-tue" value="" />
+				                        </td>
+				                        <td >
+				                            <input class="form-control" name="noteWednesday" type="text" id="note-wed" value="" />
+				                        </td>
+				                        <td >
+				                            <input class="form-control" name="noteThursday" type="text" id="note-thur" value="" />
+				                        </td>
+				                        <td >
+				                            <input class="form-control" name="noteFriday" type="text" id="note-fri" value="" />
+				                        </td>
+				                    </tr>
+			                    </tbody>
+			                </table>
+			            </div>
+			        </div>
+			    <br/>
+			    <button type="submit" id="addperiod" class="btn btn-primary" th:text="#{label.form.submit}">submit</button>
+			    </form>
+			</div>
+			<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"
+						th:if="${message != null}">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Error TimeSheet</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<ul th:each="timemessage : ${message}">
+							<li th:text="${timemessage.messages}"  ></li>
+							</ul>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-    </div>
+    	</div>
     
     <div th:replace="fragments/footer :: footer">...</div>
 </div>
@@ -157,47 +122,6 @@
                 $('#messageModal').modal('show');
 			}
         }
-//         $('#addperiod').on("click",function(e){
-//             e.preventDefault();
-
-// 	            if(confirm("Are you sure?")) {
-	            	
-// 	                var nameperiod = $("#name-period").val();
-// 	                var periformdate = $('#peri-formdate').val();
-// 	                var peritodate = $('#peri-todate').val();
-	
-// 	                var notemon = $('#note-mon').val();
-	
-// 	                var notetue = $('#note-tue').val();
-	
-// 	                var notewed = $('#note-wed').val();
-	
-// 	                var notethur = $('#note-thur').val();
-	
-// 	                var notefri = $('#note-fri').val();
-// 	                    $.ajax({
-// 	                        type: "POST",
-// 	                        url: "/addperiodtimesheet",
-// 	                        data: {nameperiod: nameperiod,
-// 	                            periformdate:periformdate,
-// 	                            peritodate:peritodate,
-	
-// 	                            notemon:notemon,
-	
-// 	                            notetue:notetue,
-	
-// 	                            notewed:notewed,
-	
-// 	                            notethur:notethur,
-	
-// 	                            notefri:notefri},
-// 	                        success: function (data) {
-// 	                            //window.location.reload();
-// 	                        }
-// 	                    });
-// 	                }    
-//         });
-
 
         $('.edit-period').on("click",function (e) {
             e.preventDefault();

@@ -5,7 +5,7 @@ import org.LTT.persistence.model.AssignInToM;
 import org.LTT.persistence.model.Role;
 import org.LTT.persistence.model.User;
 import org.LTT.security.ActiveUserStore;
-import org.LTT.service.IUserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,11 +38,9 @@ public class AssignController {
     private ReviewsRepository reviewsRepository;
 
     @Autowired
-    IUserService userService;
+    UserInterface userService;
 
-    @Autowired
-    private TimesheetRepository timesheetRepository;
-
+   
     @Autowired
     AssignInToMentorRepository assignInToMentorRepository;
 

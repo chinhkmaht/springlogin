@@ -5,17 +5,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.LTT.persistence.dao.*;
 import org.LTT.persistence.model.PeriodTimesheet;
 import org.LTT.persistence.model.RegistrationPeriod;
 import org.LTT.persistence.model.Role;
-import org.LTT.persistence.model.Timesheet;
 import org.LTT.persistence.model.User;
 import org.LTT.security.ActiveUserStore;
-import org.LTT.service.IAdminPeriodSheet;
-import org.LTT.service.IAdminRegistrationPeriod;
-import org.LTT.service.ITimesheetService;
-import org.LTT.service.IUserService;
 import org.LTT.validation.TimeValidation;
 import org.LTT.web.viewmodel.MessageModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +32,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class TimeSheetController {
 
 	@Autowired
-	private ITimesheetService iTimesheetService;
+	private AdminRegistrationPeriodInterface iAdminRegistrationPeriod;
 
 	@Autowired
-	private IAdminRegistrationPeriod iAdminRegistrationPeriod;
-
-	@Autowired
-	private IAdminPeriodSheet iAdminPeriodSheet;
+	private AdminPeriodSheetInterface iAdminPeriodSheet;
 
 	@Autowired
 	ActiveUserStore activeUserStore;
@@ -61,10 +56,7 @@ public class TimeSheetController {
 	private ReviewsRepository reviewsRepository;
 
 	@Autowired
-	IUserService userService;
-
-	@Autowired
-	private TimesheetRepository timesheetRepository;
+	UserInterface userService;
 
 	@Autowired
 	AssignInToMentorRepository assignInToMentorRepository;
@@ -83,57 +75,13 @@ public class TimeSheetController {
 
 	private ObjectError error;
 
-	@RequestMapping(value = "/admintimesheet", method = RequestMethod.GET)
-	public String admintimesheet(Model model) {
-		Role role = roleReposity.findByName("ROLE_INTERSHIP");
-		long roleid = role.getId();
-		model.addAttribute("listUserTimesheet", userRepository.findByTimesheetIsNullAndEnabledAndRoleId(true, roleid));
-		model.addAttribute("Listtimesheet", timesheetRepository.findByStatus(true));
-		return "adminTimesheet";
-	}
-
-	@RequestMapping(value = "/add-timesheet", method = RequestMethod.POST)
-	public String addtimesheet(@Validated Timesheet timesheet, BindingResult bindingResult,
-			RedirectAttributes redirectAttributes) {
-		if (bindingResult.hasErrors()) {
-			MessageModel messageModel = new MessageModel();
-			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
-			for (ObjectError error : bindingResult.getAllErrors()) {
-				String msg = error.getObjectName() + ":" + error.getDefaultMessage();
-				messageModel.getMessages().add(msg);
-			}
-			redirectAttributes.addFlashAttribute("message", messageModel);
-		} else {
-			iTimesheetService.addtimesheet(timesheet);
-		}
-		return "redirect:/admintimesheet";
-
-	}
-
-	@RequestMapping(value = "/admindeletetimesheet", method = RequestMethod.POST)
-	public String admindeletetimesheet(Model model, @RequestParam long id) {
-
-		try {
-			Timesheet timesh = timesheetRepository.findOne(id);
-			if (timesh != null) {
-				timesh.setStatus(false);
-				timesheetRepository.save(timesh);
-				long userid = timesh.getUserid();
-
-				User user = userRepository.findOne(userid);
-				user.setTimesheet(null);
-				userRepository.save(user);
-			}
-		} catch (Exception e) {
-
-		}
-
-		return "adminTimesheet";
-	}
 
 	@RequestMapping(value = "/save-registration-period", method = RequestMethod.POST)
 	public String saveRegistrationperiod(@Validated RegistrationPeriod registrationPeriod, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
+		String url="redirect:/list-period-timesheet";
+		long periodId = registrationPeriod.getPeriodId();
+		
 		if (bindingResult.hasErrors()) {
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
@@ -142,6 +90,7 @@ public class TimeSheetController {
 				messageModel.getMessages().add(msg);
 			}
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			url = "redirect:/choisePeriodTimesheet"+periodId;
 
 		} else if ((TimeValidation.validation(registrationPeriod, bindingResult, redirectAttributes))) {
 			iAdminRegistrationPeriod.adminRegistration(registrationPeriod);
@@ -149,32 +98,39 @@ public class TimeSheetController {
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("Success");
 			redirectAttributes.addFlashAttribute("message", messageModel);
+		}else if (!(TimeValidation.validation(registrationPeriod, bindingResult, redirectAttributes))) {
+//			choisePeriodTimesheet/{id}
+			url = "redirect:/choisePeriodTimesheet"+periodId;
 		}
 
-		return "redirect:/list-period-timesheet";
+		return url;
 	}
 
 	@RequestMapping(value = "/admin-save-registration-edit", method = RequestMethod.POST)
 	public String saveEditRegistrationPeriodTimesheet(@Validated RegistrationPeriod registrationPeriod,
 			BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		RegistrationPeriod checkexit = iAdminRegistrationPeriod.findbyid(registrationPeriod.getId());
+		String url ="redirect:/list-period-timesheet";
+		long id =registrationPeriod.getId();
 		if (checkexit == null) {
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("NOT FOUND Registration Period");
-			System.out.println(" 88888888888883333 ");
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			url = "redirect:/edit-registration-time/"+id;
 		} else if ((TimeValidation.validation(registrationPeriod, bindingResult, redirectAttributes))) {
-			System.out.println(
-					"555  = " + (TimeValidation.validation(registrationPeriod, bindingResult, redirectAttributes)));
-			System.out.println(" registrationPeriod   9999 " + registrationPeriod);
 			iAdminRegistrationPeriod.editRegistrationPeriod(registrationPeriod);
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("Success");
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			url ="redirect:/list-period-timesheet";
+		}else if (!(TimeValidation.validation(registrationPeriod, bindingResult, redirectAttributes))) {
+			
+			url = "redirect:/edit-registration-time/"+id;
 		}
-		return "redirect:/list-period-timesheet";
+		System.out.println("url  "+url);
+		return url;
 	}
 
 	// delete
@@ -221,12 +177,15 @@ public class TimeSheetController {
 			RedirectAttributes redirectAttributes) {
 		System.out.println("save-edit-period-timesheet  ");
 		PeriodTimesheet checkexit = iAdminPeriodSheet.findbyid(periodTimesheet.getId());
+		long id=periodTimesheet.getId();
+		String url = "redirect:/period-timesheet";
 		if (checkexit == null) {
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("NOT FOUND  Period");
 			System.out.println(" 88888888888883333 ");
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			url="redirect:/period-timesheet";
 		} else if (bindingResult.hasErrors()) {
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
@@ -235,15 +194,18 @@ public class TimeSheetController {
 				messageModel.getMessages().add(msg);
 			}
 			redirectAttributes.addFlashAttribute("message", messageModel);
-
+			url = "/editperiodtimesheet/"+id;
 		} else if ((TimeValidation.validationDate(periodTimesheet, bindingResult, redirectAttributes))) {
 			iAdminPeriodSheet.editPeriod(periodTimesheet);
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("Success");
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			url = "redirect:/period-timesheet";
+		}else if(!(TimeValidation.validationDate(periodTimesheet, bindingResult, redirectAttributes))) {
+			url = "/editperiodtimesheet/"+id;
 		}
-		return "redirect:/period-timesheet";
+		return url;
 	}
 
 	@RequestMapping(value = "/period-timesheet", method = RequestMethod.GET)
@@ -280,6 +242,7 @@ public class TimeSheetController {
 	@RequestMapping(value = "/add-period-timesheet", method = RequestMethod.POST)
 	public String savePeriodTimesheet(@Validated PeriodTimesheet periodTimesheet, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
+		String url ="redirect:/period-timesheet";
 		if (bindingResult.hasErrors()) {
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
@@ -288,6 +251,7 @@ public class TimeSheetController {
 				messageModel.getMessages().add(msg);
 			}
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			url="/add-period-timesheet";
 
 		} else if ((TimeValidation.validationDate(periodTimesheet, bindingResult, redirectAttributes))) {
 			// iAdminRegistrationPeriod.adminRegistration(registrationPeriod);
@@ -296,9 +260,12 @@ public class TimeSheetController {
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("Success");
 			redirectAttributes.addFlashAttribute("message", messageModel);
+			
+		}else if (!(TimeValidation.validationDate(periodTimesheet, bindingResult, redirectAttributes))) {
+			url="/add-period-timesheet";
 		}
 
-		return "redirect:/period-timesheet";
+		return url;
 
 	}
 

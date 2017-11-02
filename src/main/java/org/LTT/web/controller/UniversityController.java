@@ -2,11 +2,11 @@ package org.LTT.web.controller;
 
 import org.LTT.persistence.dao.RoleRepository;
 import org.LTT.persistence.dao.UniversityRepository;
+import org.LTT.persistence.dao.UserInterface;
 import org.LTT.persistence.dao.UserRepository;
 import org.LTT.persistence.model.Role;
 import org.LTT.persistence.model.University;
 import org.LTT.persistence.model.User;
-import org.LTT.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ public class UniversityController {
 	private UserRepository userRepository;
 
 	@Autowired
-	IUserService userService;
+	UserInterface userService;
 
 	@Autowired
 	private RoleRepository roleReposity;

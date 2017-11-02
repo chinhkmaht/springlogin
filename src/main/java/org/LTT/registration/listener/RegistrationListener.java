@@ -2,9 +2,9 @@ package org.LTT.registration.listener;
 
 import java.util.UUID;
 
+import org.LTT.persistence.dao.UserInterface;
 import org.LTT.persistence.model.User;
 import org.LTT.registration.OnRegistrationCompleteEvent;
-import org.LTT.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.MessageSource;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent> {
     @Autowired
-    private IUserService service;
+    private UserInterface service;
 
     @Autowired
     private MessageSource messages;
@@ -45,7 +45,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
         mailSender.send(email);
     }
 
-    //
+    //mail config
 
     private final SimpleMailMessage constructEmailMessage(final OnRegistrationCompleteEvent event, final User user, final String token) {
         final String recipientAddress = user.getEmail();

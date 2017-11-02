@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class UserService implements IUserService {
+public class UserService implements UserInterface {
 
     @Autowired
     private UserRepository repository;
@@ -178,6 +178,7 @@ public class UserService implements IUserService {
         final User user = verificationToken.getUser();
         final Calendar cal = Calendar.getInstance();
         if ((verificationToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
+        	System.out.println("verificationToken.getExpiryDate().getTime()  "+verificationToken.getExpiryDate().getTime());
             tokenRepository.delete(verificationToken);
             return TOKEN_EXPIRED;
         }

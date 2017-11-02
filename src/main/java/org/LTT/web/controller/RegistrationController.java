@@ -11,12 +11,12 @@ import javax.validation.Valid;
 import org.LTT.persistence.dao.CompanyCardRepository;
 import org.LTT.persistence.dao.RoleRepository;
 import org.LTT.persistence.dao.UniversityRepository;
+import org.LTT.persistence.dao.UserInterface;
 import org.LTT.persistence.model.Role;
 import org.LTT.persistence.model.User;
 import org.LTT.persistence.model.VerificationToken;
 import org.LTT.registration.OnRegistrationCompleteEvent;
 import org.LTT.security.ISecurityUserService;
-import org.LTT.service.IUserService;
 import org.LTT.web.dto.PasswordDto;
 import org.LTT.web.dto.UserDto;
 import org.LTT.web.error.InvalidOldPasswordException;
@@ -43,7 +43,7 @@ public class RegistrationController {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private IUserService userService;
+    private UserInterface userService;
 
     @Autowired
     private ISecurityUserService securityUserService;
@@ -121,10 +121,6 @@ public class RegistrationController {
         if (result.equals("valid")) {
             final User user = userService.getUser(token);
             System.out.println(user);
-            if (user.isUsing2FA()) {
-                model.addAttribute("qr", userService.generateQRUrl(user));
-                return "redirect:/qrcode.html?lang=" + locale.getLanguage();
-            }
             model.addAttribute("message", messages.getMessage("message.accountVerified", null, locale));
             return "redirect:/login?lang=" + locale.getLanguage();
         }
@@ -136,7 +132,6 @@ public class RegistrationController {
     }
 
     // user activation - verification
-
     @RequestMapping(value = "/user/resendRegistrationToken", method = RequestMethod.GET)
     @ResponseBody
     public GenericResponse resendRegistrationToken(final HttpServletRequest request, @RequestParam("token") final String existingToken) {
@@ -145,7 +140,6 @@ public class RegistrationController {
         mailSender.send(constructResendVerificationTokenEmail(getAppUrl(request), request.getLocale(), newToken, user));
         return new GenericResponse(messages.getMessage("message.resendToken", null, request.getLocale()));
     }
-
     // Reset password
     @RequestMapping(value = "/user/resetPassword", method = RequestMethod.POST)
     @ResponseBody
@@ -193,17 +187,6 @@ public class RegistrationController {
         userService.changeUserPassword(user, passwordDto.getNewPassword());
         return new GenericResponse(messages.getMessage("message.updatePasswordSuc", null, locale));
     }
-
-    @RequestMapping(value = "/user/update/2fa", method = RequestMethod.POST)
-    @ResponseBody
-    public GenericResponse modifyUser2FA(@RequestParam("use2FA") final boolean use2FA) throws UnsupportedEncodingException {
-        final User user = userService.updateUser2FA(use2FA);
-        if (use2FA) {
-            return new GenericResponse(userService.generateQRUrl(user));
-        }
-        return null;
-    }
-
 
     private SimpleMailMessage constructResendVerificationTokenEmail(final String contextPath, final Locale locale, final VerificationToken newToken, final User user) {
         final String confirmationUrl = contextPath + "/registrationConfirm.html?token=" + newToken.getToken();

@@ -2,6 +2,7 @@ package org.LTT.service;
 
 import java.util.Date;
 
+import org.LTT.persistence.dao.AdminCardInterface;
 import org.LTT.persistence.dao.CompanyCardRepository;
 import org.LTT.persistence.dao.UserRepository;
 import org.LTT.persistence.model.CompanyCard;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminCardService implements IAdminCardService {
+public class AdminCardService implements AdminCardInterface {
 
 	@Autowired
 	CompanyCardRepository companyCardRepository;

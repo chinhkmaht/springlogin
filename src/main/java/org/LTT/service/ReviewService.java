@@ -2,6 +2,7 @@ package org.LTT.service;
 
 import java.util.Date;
 
+import org.LTT.persistence.dao.ReviewInterface;
 import org.LTT.persistence.dao.ReviewsRepository;
 import org.LTT.persistence.dao.UserRepository;
 import org.LTT.persistence.model.Reviews;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReviewService implements IReviewService {
+public class ReviewService implements ReviewInterface {
 
 	@Autowired
 	UserRepository userRepository;

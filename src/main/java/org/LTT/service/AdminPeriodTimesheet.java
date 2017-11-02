@@ -3,6 +3,7 @@ package org.LTT.service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.LTT.persistence.dao.AdminPeriodSheetInterface;
 import org.LTT.persistence.dao.PeriodTimesheetRepository;
 import org.LTT.persistence.dao.ResgistrationPeriodReposition;
 import org.LTT.persistence.dao.UserRepository;
@@ -11,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminPeriodTimesheet implements IAdminPeriodSheet{
+public class AdminPeriodTimesheet implements AdminPeriodSheetInterface{
 	@Autowired
 	private ResgistrationPeriodReposition resgistrationPeriodReposition;
 

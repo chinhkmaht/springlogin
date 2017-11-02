@@ -1,5 +1,6 @@
 package org.LTT.service;
 
+import org.LTT.persistence.dao.AdminRegistrationPeriodInterface;
 import org.LTT.persistence.dao.PeriodTimesheetRepository;
 import org.LTT.persistence.dao.ResgistrationPeriodReposition;
 import org.LTT.persistence.dao.UserRepository;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminRegistrationService implements IAdminRegistrationPeriod {
+public class AdminRegistrationService implements AdminRegistrationPeriodInterface {
 	@Autowired
 	private ResgistrationPeriodReposition resgistrationPeriodReposition;
 

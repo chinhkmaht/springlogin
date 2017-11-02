@@ -26,6 +26,7 @@
 <div id="page">
 	<div th:replace="header/header :: header">...</div>
 	<div class="container">
+		<div class="MG20">
 <!-- 	  <form action="/" method="POST" enctype="utf8"> -->
 <!-- 	  		<div class="form-group row"> -->
 <!--                 <div class="form-group" > -->
@@ -63,35 +64,63 @@
 
 			
 
-		<span th:text="${checkrole}"></span> 
-		<span th:text="${roleadmin}"></span>
-		<span th:if="${checkrole} ==  ${roleadmin}"> admin </span>
-		<span th:if="${checkrole} ==  ${roleUser}"> user </span>
+<!-- 		<span th:text="${checkrole}"></span>  -->
+<!-- 		<span th:text="${roleadmin}"></span> -->
+<!-- 		<span th:if="${checkrole} ==  ${roleadmin}"> admin </span> -->
+<!-- 		<span th:if="${checkrole} ==  ${roleUser}"> user </span> -->
 		
-		<div class="row">	
-			<div class="col-lg-8 col-md-7 col-sm-6">
-				<table class="table table-striped table-hover">
-					<thead>
-					<tr>
-						<th>ID</th>
-						<th>Firt Name</th>
-						<th>last Name</th>
-						<th>Email</th>
-						<th>Action</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr th:each="user : ${userlist}">
-						<td th:text="${user.id}"></td>
-						<td th:text="${user.lastName}" th:id="${user.id}" data-pk="9999" class="usereditablelastname"  ></td>
-						<td th:text="${user.firstName}" th:id="${user.id}" data-pk="9999" class="usereditablefirtname"  ></td>
-						<td th:text="${user.email}"></td>
-						<td th:id="${user.id}"><button class="btn btn-danger delete-user">
-							Delete
-						</button></td>
-					</tr>
-					</tbody>
-				</table>
+			<div class="row">	
+				<div class="col-lg-8 col-md-7 col-sm-6 boxshow">
+					<table class="table table-striped table-hover">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>Firt Name</th>
+							<th>last Name</th>
+							<th>Email</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="user : ${userlist}">
+							<form th:action="@{/deletelogicuser}" method="post">
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.lastName}" th:id="${user.id}" data-pk="9999" class="usereditablelastname"  ></td>
+								<td th:text="${user.firstName}" th:id="${user.id}" data-pk="9999" class="usereditablefirtname"  ></td>
+								<td th:text="${user.email}"></td>
+								<td th:id="${user.id}" name="id"><button type="submit" class="btn btn-danger delete-user">
+									Delete
+								</button>
+								 <input  type="hidden" name="id"  th:value="*{user.id}" />
+								</td>
+							</form>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"
+						th:if="${message != null}">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Message</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul th:each="timemessage : ${message}">
+					<li th:text="${timemessage.messages}"  ></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -99,10 +128,16 @@
 	<div th:replace="fragments/footer :: footer">...</div>
 </div>
 
-
 <script type="application/javascript">
     $(document).ready(function () {
 
+    	showMessage();
+		function showMessage() {
+			if ($('#messageModal').length > 0) {
+                $('#messageModal').modal('show');
+			}
+        }
+    	
         $('.search-user').on("click", function(e){
             e.preventDefault();
             var userfirtname = $('#user-firtname').val().trim();
@@ -170,21 +205,21 @@
 
         });
 
-        $('.delete-user').on("click", function(e){
-            e.preventDefault();
-            if(confirm("Are you sure the order is complete?")){
-                var id = parseInt($(this).closest("td").attr("id"));
-                alert(" Id= "+id);
-                $.ajax({
-                    type:"POST",
-                    url:"/deletelogicuser",
-                    data:{id:id},
-                    success:function (data) {
-                    	  window.location.reload();
-                    }
-                });
-            }
-        });
+//         $('.delete-user').on("click", function(e){
+//             e.preventDefault();
+//             if(confirm("Are you sure the order is complete?")){
+//                 var id = parseInt($(this).closest("td").attr("id"));
+//                 alert(" Id= "+id);
+//                 $.ajax({
+//                     type:"POST",
+//                     url:"/deletelogicuser",
+//                     data:{id:id},
+//                     success:function (data) {
+//                     	 // window.location.reload();
+//                     }
+//                 });
+//             }
+//         });
 
     });
 </script>

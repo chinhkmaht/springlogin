@@ -33,8 +33,9 @@
 <div id="page">
 	<div th:replace="header/header :: header">...</div>
 	<div class="container">
-		<form th:action="@{/add-timesheet}" method="post">
-			<div class="form-group row">
+		<div class="MG20">
+			<form th:action="@{/add-timesheet}" method="post">
+				<div class="form-group row">
 					<div class="form-group col-sm-6" >
 						<label class="col-sm-2" >Form Date</label>
 						<div  class="input-append col-sm-4 datetimepicker3 ">
@@ -52,11 +53,9 @@
 						<div  class="input-append col-sm-4 datetimepicker3">
 							<input name="totime" data-format="hh:mm:ss" type="text" id="to-time"></input>
 							<span class="add-on">
-							  <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-							  </i>
+								  <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+								  </i>
 							</span>
-							
-							
 						</div>
 					</div>
 				</div>
@@ -70,48 +69,48 @@
 						</span>
 					</div>
 				</div>
-			<div class="form-group row">
-				<label class="col-sm-3" >User Mentor</label>
-				<span class="col-sm-5">
-                    <select  name="userid" class="form-control" id="checkUsertimesheet" >
-                        <option th:each="user : ${listUserTimesheet}"
-								th:value="${user.id}"
-								th:text="${user.lastName  + ' ' +user.firstName}">
-                        </option>
-                    </select>
-                    </span>
-			</div>
+				<div class="form-group row">
+					<label class="col-sm-3" >User Mentor</label>
+					<span class="col-sm-5">
+	                    <select  name="userid" class="form-control" id="checkUsertimesheet" >
+	                        <option th:each="user : ${listUserTimesheet}"
+									th:value="${user.id}"
+									th:text="${user.lastName  + ' ' +user.firstName}">
+	                        </option>
+	                    </select>
+	               </span>
+				</div>
 			<button type="submit"  id="admin-timesheet" class="btn btn-primary" >Submit</button>
-		</form>
+			</form>
 			<div class="row">
-				<div class="col-lg-8 col-md-7 col-sm-6">
-
+				<div class="col-lg-8 col-md-7 col-sm-6 boxshow">
 					<table class="table table-striped table-hover">
 						<thead>
-						<tr>
-							<th>ID</th>
-							<th>Time Form</th>
-							<th>Time To</th>\
-							<th> User Name</th>
-							<th> Note</th>
-							<th> Action</th>
-						</tr>
+							<tr>
+								<th>ID</th>
+								<th>Time Form</th>
+								<th>Time To</th>\
+								<th> User Name</th>
+								<th> Note</th>
+								<th> Action</th>
+							</tr>
 						</thead>
 						<tbody>
-						<tr th:each="timesheet : ${Listtimesheet}">
-							<td th:text="${timesheet.id}"></td>
-							<td th:text="${timesheet.formtime}"  data-format="hh.mm.ss" id="timeeditable"></td>
-							<td th:text="${timesheet.totime}"  ></td>
-							<td th:text="${timesheet.username}"  ></td>
-							<td th:text="${timesheet.note}"  ></td>
-							<td th:id="${timesheet.id}"><button class="btn btn-danger delete-timesheet">
-								Action
-							</button></td>
-						</tr>
+							<tr th:each="timesheet : ${Listtimesheet}">
+								<td th:text="${timesheet.id}"></td>
+								<td th:text="${timesheet.formtime}"  data-format="hh.mm.ss" id="timeeditable"></td>
+								<td th:text="${timesheet.totime}"  ></td>
+								<td th:text="${timesheet.username}"  ></td>
+								<td th:text="${timesheet.note}"  ></td>
+								<td th:id="${timesheet.id}"><button class="btn btn-danger delete-timesheet">
+									Action
+								</button></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+		</div>
 	</div>
 
 	<div th:replace="fragments/footer :: footer">...</div>

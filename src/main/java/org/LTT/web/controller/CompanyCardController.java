@@ -1,15 +1,16 @@
 package org.LTT.web.controller;
 
+import org.LTT.persistence.dao.AdminCardInterface;
 import org.LTT.persistence.dao.CompanyCardRepository;
 import org.LTT.persistence.dao.RoleRepository;
+import org.LTT.persistence.dao.UserInterface;
 import org.LTT.persistence.dao.UserRepository;
 import org.LTT.persistence.model.CompanyCard;
 import org.LTT.persistence.model.RegistrationPeriod;
 import org.LTT.persistence.model.Role;
 import org.LTT.persistence.model.University;
 import org.LTT.persistence.model.User;
-import org.LTT.service.IAdminCardService;
-import org.LTT.service.IUserService;
+
 import org.LTT.validation.TimeValidation;
 import org.LTT.web.viewmodel.MessageModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,14 +34,15 @@ public class CompanyCardController {
 	@Autowired
 	private CompanyCardRepository companyCardRepository;
 
-	@Autowired
-	IAdminCardService iAdminCardSevice;
-
+	
 	@Autowired
 	private UserRepository userRepository;
 
 	@Autowired
-	IUserService userService;
+	UserInterface userService;
+	
+	@Autowired
+	AdminCardInterface adminCardInterface;
 
 	@Autowired
 	private RoleRepository roleReposity;
@@ -78,7 +80,7 @@ public class CompanyCardController {
 			}
 			redirectAttributes.addFlashAttribute("message", messageModel);
 		} else {
-			iAdminCardSevice.addNewCard(companyCard);
+			adminCardInterface.addNewCard(companyCard);
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("Success");

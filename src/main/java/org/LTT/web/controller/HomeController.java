@@ -1,10 +1,10 @@
 package org.LTT.web.controller;
 
 import org.LTT.persistence.dao.RoleRepository;
+import org.LTT.persistence.dao.UserInterface;
 import org.LTT.persistence.dao.UserRepository;
 import org.LTT.persistence.model.Role;
 import org.LTT.persistence.model.User;
-import org.LTT.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class HomeController {
     private UserDetailsService userDetailsService;
 
     @Autowired
-    IUserService userService;
+    UserInterface userService;
     
     @Autowired 
     private RoleRepository roleReposity;
@@ -44,7 +44,6 @@ public class HomeController {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-    	
         return "index";
     }
 
@@ -63,6 +62,23 @@ public class HomeController {
 		}
         return "index";
     }
+    
+    
+    @RequestMapping(value = "/homepageinternship", method = RequestMethod.GET)
+    public String homeinternship(Model model,Principal principal) {
+    	try {
+    		System.out.println(" useruseruser == nnn "+principal.getName());
+        	User user =userService.findUserByEmail(principal.getName());
+        	long roleId= user.getRoleId();
+        	Role role = roleReposity.findOne(roleId);
+        	String rolename =role.getName();
+        	model.addAttribute("checkrole",rolename);
+        	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+        return "homepageinternship";
+    }
 
     @RequestMapping(value = "/users",method = RequestMethod.GET)
     public String getAllUser( Model model){
@@ -70,8 +86,5 @@ public class HomeController {
 
         return "users";
     }
-
-
-
 
 }

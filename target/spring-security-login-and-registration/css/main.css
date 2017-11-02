@@ -84,3 +84,31 @@ label{
 #messageModal{
 	margin-left: 500;
 }
+.boxshow{
+	-webkit-box-shadow: 5 5px 5px 5px #ccc ;
+    box-shadow: 5px 5px 5px 5px #ccc;
+    margin-top: 20px;
+}
+.MG20{
+	margin-top: 20px;
+	margin-left: 15px;
+}
+
+.container{
+	padding: 15px;
+    background: whitesmoke;
+}
+input{
+	height: 30px !important;
+}
+.add-on{
+	height: 30px !important;
+}
+select{
+  padding:0px !important;
+  height:30px !important
+}
+.form-group {
+    margin-top: 15px;
+    margin-bottom: 0px !important;
+}

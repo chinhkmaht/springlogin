@@ -40,8 +40,6 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         }
         clearAuthenticationAttributes(request);
     }
-
-
     // check login
 
     protected void handle(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
@@ -72,10 +70,7 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
             return "/homepage.html?user=" + authentication.getName();
         } else if (isAdmin) {
         	 return "/userlist";
-        } else if(isinternship) {
-        	return "/homepageinternship";
-           
-        }else {
+        } else {
         	 throw new IllegalStateException();
         }
     }

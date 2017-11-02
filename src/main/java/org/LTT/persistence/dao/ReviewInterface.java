@@ -1,8 +1,8 @@
-package org.LTT.service;
+package org.LTT.persistence.dao;
 
 import org.LTT.persistence.model.Reviews;
 
-public interface IReviewService {
+public interface ReviewInterface {
 	void addReviewsinternship(Reviews reviews);
 
 }

@@ -3,9 +3,7 @@ package org.LTT.web.controller;
 import org.LTT.persistence.dao.*;
 import org.LTT.persistence.model.*;
 import org.LTT.security.ActiveUserStore;
-import org.LTT.service.IUserService;
 import org.LTT.web.dto.UserDto;
-import org.LTT.web.viewmodel.AddTimeSheetRequest;
 import org.LTT.web.viewmodel.MessageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +37,7 @@ public class UserController {
 	private ReviewsRepository reviewsRepository;
 
 	@Autowired
-	IUserService userService;
+	UserInterface userService;
 
 	@Autowired
 	AssignInToMentorRepository assignInToMentorRepository;
