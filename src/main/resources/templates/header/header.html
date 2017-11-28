@@ -11,7 +11,7 @@
          <div class="collapse navbar-collapse">
              <ul class="nav navbar-nav navbar-right">
                  <li class="active"><a th:href="@{/}">Home</a></li>
-		<li th:if="${checkrole} == 'ROLE_ADMIN' "><a th:href="@{/university}">Work Unit</a></li>
+				 <li th:if="${checkrole} == 'ROLE_ADMIN' "><a th:href="@{/university}">Work Unit</a></li>
                  <li th:if="${checkrole} == 'ROLE_ADMIN' "><a th:href="@{/companycard}">Card</a></li>
                  <li th:if="${checkrole} == 'ROLE_ADMIN' "><a th:href="@{/userlist}">User List</a></li>
                  <li th:if="${checkrole} == 'ROLE_ADMIN' "><a th:href="@{/listinternship}">List Internship</a></li>

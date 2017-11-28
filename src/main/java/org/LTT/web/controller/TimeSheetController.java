@@ -81,7 +81,7 @@ public class TimeSheetController {
 			RedirectAttributes redirectAttributes) {
 		String url="redirect:/list-period-timesheet";
 		long periodId = registrationPeriod.getPeriodId();
-		
+
 		if (bindingResult.hasErrors()) {
 			MessageModel messageModel = new MessageModel();
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
@@ -126,7 +126,7 @@ public class TimeSheetController {
 			redirectAttributes.addFlashAttribute("message", messageModel);
 			url ="redirect:/list-period-timesheet";
 		}else if (!(TimeValidation.validation(registrationPeriod, bindingResult, redirectAttributes))) {
-			
+
 			url = "redirect:/edit-registration-time/"+id;
 		}
 		System.out.println("url  "+url);
@@ -251,7 +251,7 @@ public class TimeSheetController {
 				messageModel.getMessages().add(msg);
 			}
 			redirectAttributes.addFlashAttribute("message", messageModel);
-			url="/add-period-timesheet";
+			url="/new-period-timesheet";
 
 		} else if ((TimeValidation.validationDate(periodTimesheet, bindingResult, redirectAttributes))) {
 			// iAdminRegistrationPeriod.adminRegistration(registrationPeriod);
@@ -260,9 +260,9 @@ public class TimeSheetController {
 			messageModel.setTypeMessage(MessageModel.TYPE_MESSAGE_ERROR);
 			messageModel.getMessages().add("Success");
 			redirectAttributes.addFlashAttribute("message", messageModel);
-			
+
 		}else if (!(TimeValidation.validationDate(periodTimesheet, bindingResult, redirectAttributes))) {
-			url="/add-period-timesheet";
+			url="/new-period-timesheet";
 		}
 
 		return url;

@@ -30,7 +30,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AuthenticationSuccessHandler myAuthenticationSuccessHandler;
-    
+
     @Autowired
     private LogoutSuccessHandler myLogoutSuccessHandler;
 
@@ -60,11 +60,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable()
             .authorizeRequests()
                 .antMatchers("/index*","/index*","/searchuser*","/login*","/fragments*", "/logout*", "/signup/**", "/customLogin",
-                        "/registrationConfirm*", 
+                        "/registrationConfirm*",
                         "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*","/searchusertop*", "/user/resetPassword*",
                         "/user/changePassword*", "/emailError*","/resources/**","/old/user/registration*","/successRegister*","/editeviews*","/qrcode*","/deletelogicuser*").permitAll()
                 .antMatchers("/invalidSession*").anonymous()
-                .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
+                .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*","/new-period-timesheet*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
                 .antMatchers("/university*","/userlist*","/saveuniversity*","/addcompanycard*","/saveassign*","/admin-edit-save-registration*","/listperiodtimesheet*","/addlocal*","/deleteassign*","/companycard*","/savecompanycard*","/registration*", "/user/registration*", "/deletelogiccompanycard*","/adduniversity*","/deletelogicuniversity*", "/signin/**").permitAll()
 //                .antMatchers("/university*","/userlist*","/saveuniversity*","/addcompanycard*","/companycard*","/savecompanycard*","/registration*", "/user/registration*", "/deletelogiccompanycard*","/adduniversity*","/deletelogicuniversity*", "/signin/**").hasAuthority("WRITE_PRIVILEGE")
                 .antMatchers( "/signin/**").hasAuthority("READ_PRIVILEGE")
@@ -75,11 +75,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/login?error=true")
                 .successHandler(myAuthenticationSuccessHandler)
                 .failureHandler(authenticationFailureHandler)
-                
+
             .permitAll()
                 .and()
             .sessionManagement()
-              
+
                 .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
                 .sessionFixation().none()
             .and()
